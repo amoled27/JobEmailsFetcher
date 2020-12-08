@@ -1,0 +1,23 @@
+{
+    "name": "Gmail Job Mails Retriver",
+    "description": "Get unread job mails in yout inbox",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "tabs",
+        "<all_urls>",
+        "webNavigation", "*://*/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js",
+            "getmails.js"
+        ],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}
