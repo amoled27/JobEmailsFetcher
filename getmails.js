@@ -2,6 +2,7 @@ getEmails = {
     config: {
         filterText: 'jobs'
     },
+    executionFlag: true,
     emailIndex: 0,
     unreadEmailsArr: [],
     allUnreadEmailData: [],
@@ -43,9 +44,14 @@ getEmails = {
         return this.emailIndex--;
     },
     addFilteredEmailsToStorage(filteredEmails) {
+        let that = this;
         chrome.storage.sync.set({ filteredEmails: filteredEmails }, function () {
             console.log('Added to storage');
+            that.onExecutionEnd();
         });
+    },
+    onExecutionEnd() {
+        this.executionFlag = false;
     }
 }
 
